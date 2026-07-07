@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werk 03 - Vatersein(wollen)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Varela&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Spezifisches Styling für die interaktive Wort-Landschaft */
+        .interactive-space {
+            position: relative;
+            width: 100%;
+            height: 65vh;
+            background-color: #EAE6DF;
+            overflow: hidden;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            cursor: default;
+        }
+
+        .floating-word {
+            position: absolute;
+            font-family: 'Varela', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.6rem);
+            color: rgba(26, 26, 26, 0.75);
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 8px 15px;
+            transition: color 0.3s, transform 0.3s, background-color 0.3s;
+            user-select: none;
+            will-change: transform;
+        }
+
+        .floating-word:hover {
+            color: #8C857B;
+            transform: scale(1.1);
+            background-color: rgba(242, 239, 233, 0.6);
+            border-radius: 4px;
+            z-index: 1000 !important;
+        }
+
+        .interaction-hint {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 60px;
+        }
+
+        /* 15-Bilder-Slider Styling (Kompakt & Unbeschnitten) */
+        .gallery-slider-section {
+            max-width: 450px;
+            width: 100%;
+            margin: 40px auto 60px auto;
+        }
+
+        .slider-frame {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background-color: #EAE6DF;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .slider-images {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slider-slide {
+            min-width: 100%;
+            width: 100%;
+            flex-shrink: 0;
+            flex-grow: 0;
+            height: 100%;
+        }
+
+        .slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            pointer-events: none;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding: 0 5px;
+        }
+
+        .slider-arrow {
+            background: none;
+            border: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #1A1A1A;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .slider-counter {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        /* Video-Bereich ganz unten */
+        .work-media-container {
+            max-width: 900px;
+            margin: 40px auto 60px auto;
+            width: 100%;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #EAE6DF;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.03);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Bereich -->
+    <header class="main-header">
+        <div class="logo"><a href="index.html">VATER SEIN (WOLLEN)</a></div>
+        <nav class="minimal-nav">
+            <a href="index.html" class="back-link">&larr; Zurück zur Übersicht</a>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main class="main-container">
+        
+        <!-- Beschreibung für Werk 03 (Zentriert) -->
+        <section class="concept-section" style="margin-top: 0; margin-bottom: 20px;">
+            <span class="card-num">Interaktives Werk</span>
+            <h1 class="concept-title" style="margin-top: 10px;">"Lieber Papa..."</h1>
+            <div class="concept-text">
+                <p>
+                    Was würdest du deinem Vater (gerne) sagen? Hier hatten Menschen jedes Alters und Geschlechts die Möglichkeit ihre Worte auf Papier zu bringen. Und ihren Briefen haben dann Fremde eine Stimme gegeben. 
+                    Klicke dich durch Zitatwörter, schau dir die Briefe an oder höre den Fremden zu. Falls du nur lesen oder schauen möchtest, scroll etwas runter, dort findest alles. 
+                </p>
+            </div>
+        </section>
+
+        <!-- Interaktiver Raum mit fliegenden Wörtern -->
+        <div class="interactive-space" id="interactiveSpace">
+            <!-- Die 15 Wörter werden per JavaScript dynamisch erzeugt -->
+        </div>
+        <div class="interaction-hint">Interaktives Archiv: Bewege die Maus über die Begriffe und klicke ein Wort an</div>
+
+        <!-- Trenner für die Fotos -->
+        <div class="divider">Die Briefe</div>
+
+        <!-- NEU: 15-Bilder-Slider (Manuell, unbeschnitten) -->
+        <section class="gallery-slider-section">
+            <div class="slider-frame">
+                <div class="slider-images" id="imageSlider">
+                    <!-- Ersetze die Platzhalter-Links mit deinen echten Bildpfaden (Bild 1 bis 15) -->
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="Bild 1"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="Bild 2"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Bild 3"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1518173946687-a4c8a3b1f98e?auto=format&fit=crop&w=500&q=80" alt="Bild 4"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=500&q=80" alt="Bild 5"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80" alt="Bild 6"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=500&q=80" alt="Bild 7"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1472214222541-d510753a8707?auto=format&fit=crop&w=500&q=80" alt="Bild 8"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80" alt="Bild 9"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80" alt="Bild 10"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=500&q=80" alt="Bild 11"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=500&q=80" alt="Bild 12"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=500&q=80" alt="Bild 13"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=500&q=80" alt="Bild 14"></div>
+                    <div class="slider-slide"><img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=500&q=80" alt="Bild 15"></div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="slider-arrow" onclick="movePhotoSlider(-1)">&larr; Zurück</button>
+                <div class="slider-counter" id="photoCounter">1 / 15</div>
+                <button class="slider-arrow" onclick="movePhotoSlider(1)">Weiter &rarr;</button>
+            </div>
+        </section>
+
+        <!-- Trenner für das Video -->
+        <div class="divider">Video</div>
+
+        <!-- Bereich für das Video -->
+        <div class="work-media-container">
+            <div class="video-wrapper">
+                <video controls poster="./fotos/Filmstill_1 Kopie.jpg">
+                    <source src="./videos/LieberPapa2.mp4" type="video/mp4">
+                    Ihr Browser unterstützt dieses Video-Format nicht.
+                </video>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JavaScript für Wörter-Flug UND Foto-Slider -->
+    <script>
+        // --- LOGIK 1: FOTO SLIDER (Steuerung für die 15 Bilder) ---
+        let currentPhotoSlide = 0;
+        const totalPhotos = 15;
+        const imageSlider = document.getElementById('imageSlider');
+        const photoCounter = document.getElementById('photoCounter');
+
+        function movePhotoSlider(direction) {
+            currentPhotoSlide += direction;
+            if (currentPhotoSlide >= totalPhotos) currentPhotoSlide = 0;
+            if (currentPhotoSlide < 0) currentPhotoSlide = totalPhotos - 1;
+
+            imageSlider.style.transform = `translateX(-${currentPhotoSlide * 100}%)`;
+            photoCounter.textContent = `${currentPhotoSlide + 1} / ${totalPhotos}`;
+        }
+
+
+    // --- LOGIK 2: INTERAKTIVES WORT-ARCHIV ---
+        const wordsData = [
+            { text: "Kuss", url: "wörter/wort-kuss.html" },
+            { text: "Du fehlst", url: "wörter/wort-du-fehlst.html" },
+            { text: "Rücken", url: "wörter/wort-rücken.html" },
+            { text: "angetrunken", url: "wörter/wort-angetrunken.html" },
+            { text: "32 Jahre", url: "wörter/wort-32-jahre.html" },
+            { text: "Unterstützung", url: "wörter/wort-unterstützung.html" },
+            { text: "queer", url: "wörter/wort-queer.html" },
+            { text: "offenes Ohr", url: "wörter/wort-offenes-ohr.html" },
+            { text: "aktiv", url: "wörter/wort-aktiv.html" },
+            { text: "Nie-Wiedersehen", url: "wörter/wort-nie-wiedersehen.html" },
+            { text: "Identität", url: "wörter/wort-identität.html" },
+            { text: "Anerkennung", url: "wörter/wort-anerkennung.html" },
+            { text: "diese Version", url: "wörter/wort-diese-version.html" },
+            { text: "Licht", url: "wörter/wort-licht.html" },
+            { text: "Studium", url: "wörter/wort-studium.html" }, // Das vergessene Komma ist hier mit drin!
+            { text: "vollkommen", url: "wörter/wort-vollkommen.html" },
+            { text: "Vorbild", url: "wörter/wort-vorbild.html" },
+        ];
+
+        const space = document.getElementById('interactiveSpace');
+        const floatingElements = [];
+
+        wordsData.forEach((data) => {
+            const link = document.createElement('a');
+            link.href = data.url;
+            link.className = 'floating-word';
+            link.textContent = data.text;
+            
+            const x = Math.random() * 70 + 5;
+            const y = Math.random() * 70 + 5;
+            link.style.left = `${x}%`;
+            link.style.top = `${y}%`;
+            link.style.zIndex = Math.floor(Math.random() * 10) + 1;
+            space.appendChild(link);
+
+            let dx = (Math.random() - 0.5) * 0.4;
+            let dy = (Math.random() - 0.5) * 0.4;
+            if (Math.abs(dx) < 0.1) dx = dx < 0 ? -0.15 : 0.15;
+            if (Math.abs(dy) < 0.1) dy = dy < 0 ? -0.15 : 0.15;
+
+            floatingElements.push({
+                element: link,
+                x: (x / 100) * space.clientWidth,
+                y: (y / 100) * space.clientHeight,
+                dx: dx,
+                dy: dy,
+                width: 0,
+                height: 0
+            });
+        });
+
+        function animate() {
+            const spaceWidth = space.clientWidth;
+            const spaceHeight = space.clientHeight;
+
+            floatingElements.forEach(item => {
+                if (!item.width) {
+                    item.width = item.element.offsetWidth;
+                    item.height = item.element.offsetHeight;
+                }
+                item.x += item.dx;
+                item.y += item.dy;
+
+                if (item.x <= 0) { item.x = 0; item.dx *= -1; }
+                else if (item.x + item.width >= spaceWidth) { item.x = spaceWidth - item.width; item.dx *= -1; }
+
+                if (item.y <= 0) { item.y = 0; item.dy *= -1; }
+                else if (item.y + item.height >= spaceHeight) { item.y = spaceHeight - item.height; item.dy *= -1; }
+
+                item.element.style.transform = `translate(${item.x - (parseFloat(item.element.style.left) / 100 * spaceWidth)}px, ${item.y - (parseFloat(item.element.style.top) / 100 * spaceHeight)}px)`;
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('load', () => {
+            floatingElements.forEach(item => {
+                item.width = item.element.offsetWidth;
+                item.height = item.element.offsetHeight;
+            });
+            imageSlider.style.transform = 'translateX(0%)';
+            animate();
+        });
+
+        window.addEventListener('resize', () => {
+            const spaceWidth = space.clientWidth;
+            const spaceHeight = space.clientHeight;
+            floatingElements.forEach(item => {
+                item.width = item.element.offsetWidth;
+                item.height = item.element.offsetHeight;
+                if (item.x + item.width > spaceWidth) item.x = spaceWidth - item.width;
+                if (item.y + item.height > spaceHeight) item.y = spaceHeight - item.height;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werk 01 - Vatersein(wollen)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Varela&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Spezifische Styles für Video & Slider auf dieser Unterseite -->
+    <style>
+       /* ==========================================================================
+           KOMPAKTER BILDER-SLIDER
+           ========================================================================== */
+        
+        .gallery-slider-section {
+            max-width: 450px;    /* Deutlich schmaler und kompakter */
+            width: 100%;
+            margin: 60px auto 40px auto; /* Zentriert die Sektion auf der Seite */
+        }
+
+        .slider-frame {
+            width: 100%;
+            aspect-ratio: 3 / 4; /* Etwas kompakteres Hochformat als vorher */
+            background-color: #EAE6DF;
+            overflow: hidden;    /* Versteckt die inaktiven Bilder */
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+     .slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Zeigt das komplette Bild ohne Beschnitt */
+            display: block;
+            pointer-events: none;
+        }
+
+        .slider-slide {
+            width: 100%;
+            flex-shrink: 0;     /* Verhindert das Zusammenquetschen */
+            flex-grow: 0;
+            height: 100%;
+        }
+
+        .slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Tasten & Counter-Anordnung unter dem kleineren Bild */
+        .slider-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Bereich -->
+    <header class="main-header">
+        <div class="logo"><a href="https://www.liga-kind.de/fk-504-teubner/">VATER SEIN (WOLLEN)</a></div>
+        <nav class="minimal-nav">
+            <a href="index.html" class="back-link">&larr; Zurück zur Übersicht</a>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main class="main-container">
+        
+        <!-- Bereich für den Kurzfilm -->
+        <div class="work-media-container">
+            <div class="video-wrapper">
+                <!-- Ersetze 'kurzfilm.mp4' mit deiner echten Videodatei oder einem Vimeo/YouTube-Embed -->
+                <video controls poster="./fotos/stillportfolio.jpg">
+                    <source src="./videos/Türspalt teaser.mp4" type="video/mp4">
+                    Ihr Browser unterstützt dieses Video-Format nicht.
+                </video>
+            </div>
+        </div>
+
+        <!-- Filmbeschreibung (Zentriert) -->
+        <section class="concept-section" style="margin-top: 0;">
+            <span class="card-num">Kurzfilm-Teaser</span>
+            <h1 class="concept-title" style="margin-top: 10px;">Türspalt</h1>
+            <div class="concept-text">
+                <p>
+                    Carlo konnte mit seinem Stiefvater Silas eigentlich über alles reden, seine Zimmertür war immer offen. Doch jetzt ist es schwieriger, Carlo ist 16 und die Tür bleibt oft zu. Dazu kommt noch seine Schulaufführung, bei der sein leiblicher Vater versprochen hatte, dass er kommt.     Sind es nur leere Versprechungen?
+            
+                </p>
+                <p>
+                    Drehbuch: Eva Grandjean
+                    <br> Regie: Eva Grandjean und Mila Sommerfeldt 
+                </p>
+            </div>
+        </section>
+
+        <!-- Trenner für die Galerie beim Runterscrollen -->
+       <!-- Trenner für die Galerie beim Runterscrollen -->
+        <div class="divider">Drehbuch-Ausschnitte & BTS-Fotos</div>
+
+        <!-- Doppelslider-Sektion (Zwei Slider nebeneinander) -->
+        <section class="gallery-double-wrapper">
+            
+            <!-- LINKER SLIDER (Slider A) -->
+            <div class="gallery-slider-section">
+                <div class="slider-frame">
+                    <div class="slider-images" id="sliderImagesA">
+                        <div class="slider-slide">
+                            <img src="./fotos/TÜRSPALT-DREHBUCH-1.png" alt="Links Bild 1">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="./fotos/TÜRSPALT-DREHBUCH-2.png" alt="Links Bild 2">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="./fotos/TÜRSPALT-DREHBUCH-3.png" alt="Links Bild 3">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="slider-arrow" onclick="moveSliderA(-1)">&larr; Zurück</button>
+                    <div class="slider-counter" id="sliderCounterA">1 / 3</div>
+                    <button class="slider-arrow" onclick="moveSliderA(1)">Weiter &rarr;</button>
+                </div>
+            </div>
+
+            <!-- RECHTER SLIDER (Slider B) -->
+            <div class="gallery-slider-section">
+                <div class="slider-frame">
+                    <div class="slider-images" id="sliderImagesB">
+                        <div class="slider-slide">
+                            <img src="./fotos/WhatsApp Image 2026-07-06 at 19.19.32.jpeg" alt="Rechts Bild 1">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="./fotos/bild 2.jpeg" alt="Rechts Bild 2">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="./fotos/bild3.jpeg" alt="Rechts Bild 3">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="slider-arrow" onclick="moveSliderB(-1)">&larr; Zurück</button>
+                    <div class="slider-counter" id="sliderCounterB">1 / 3</div>
+                    <button class="slider-arrow" onclick="moveSliderB(1)">Weiter &rarr;</button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Ergänzende Styles für das Nebeneinander-Layout -->
+    <style>
+        .gallery-double-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Teilt den Platz in 2 exakt gleiche Hälften */
+            gap: 40px; /* Abstand zwischen den beiden Slidern */
+            max-width: 900px; /* Passt sich der Breite deines Videos oben an */
+            margin: 60px auto 40px auto;
+            width: 100%;
+        }
+
+        .gallery-slider-section {
+            width: 100%; /* Nutzt die zugewiesene Grid-Hälfte */
+        }
+
+        .slider-frame {
+            width: 100%;
+            aspect-ratio: 3 / 4; /* Dein gewähltes Format */
+            background-color: #EAE6DF;
+            overflow: hidden;    /* Schneidet die unsichtbaren Bilder ab */
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .slider-images {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;        /* Auf 100% korrigiert, damit das JS präzise springt */
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slider-slide {
+            min-width: 100%;    /* Jedes Bild nimmt exakt die volle Breite des Frames ein */
+            width: 100%;
+            flex-shrink: 0;
+            flex-grow: 0;
+            height: 100%;
+        }
+
+        .slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Zeigt das komplette Bild ohne Beschnitt */
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Mobil-Optimierung: Auf Handys werden die Slider untereinander geschoben */
+        @media (max-width: 768px) {
+            .gallery-double-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                max-width: 450px; /* Verhindert, dass sie auf Handys riesig werden */
+            }
+        }
+    </style>
+
+    <!-- JavaScript zur getrennten Steuerung beider Slider -->
+    <script>
+        // Variablen für Slider A (Links)
+        let currentSlideA = 0;
+        const sliderImagesA = document.getElementById('sliderImagesA');
+        const sliderCounterA = document.getElementById('sliderCounterA');
+        
+        // Variablen für Slider B (Rechts)
+        let currentSlideB = 0;
+        const sliderImagesB = document.getElementById('sliderImagesB');
+        const sliderCounterB = document.getElementById('sliderCounterB');
+
+        const totalSlides = 3; // Feste Anzahl der Bilder pro Slider
+
+        // Steuerung Links (A)
+        function moveSliderA(direction) {
+            currentSlideA += direction;
+            if (currentSlideA >= totalSlides) currentSlideA = 0;
+            if (currentSlideA < 0) currentSlideA = totalSlides - 1;
+            
+            sliderImagesA.style.transform = `translateX(-${currentSlideA * 100}%)`;
+            sliderCounterA.textContent = `${currentSlideA + 1} / ${totalSlides}`;
+        }
+
+        // Steuerung Rechts (B)
+        function moveSliderB(direction) {
+            currentSlideB += direction;
+            if (currentSlideB >= totalSlides) currentSlideB = 0;
+            if (currentSlideB < 0) currentSlideB = totalSlides - 1;
+            
+            sliderImagesB.style.transform = `translateX(-${currentSlideB * 100}%)`;
+            sliderCounterB.textContent = `${currentSlideB + 1} / ${totalSlides}`;
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,386 @@
+/* ==========================================================================
+   1. GLOBAL RE-STYLES & BROWSER-KOMPATIBILITÄT
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Verhindert unschöne Verschiebungen bei Browser-Wechseln */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth; /* Flüssiges Scrollen beim Klick aufs Logo */
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #F2EFE9; /* Mattes Beige */
+    color: #1A1A1A;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden; /* Verhindert horizontales Scrollen auf Handys */
+}
+
+/* Schriftzuweisungen für Überschriften */
+.logo, 
+header h1, 
+.concept-title, 
+.card-title, 
+.item-title,
+.projects-section h2,
+.member-name {
+    font-family: 'Varela', sans-serif;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   2. HEADER & LOGO (Vollständig responsiv)
+   ========================================================================== */
+.main-header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding: 8vw 20px 40px 20px; /* Nutzt vw (Viewport-Width) für dynamischen Abstand oben */
+    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    width: 100%;
+}
+
+.logo a {
+    color: #1A1A1A; /* Bleibt standardmäßig dunkel */
+    text-decoration: none;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    display: inline-block;
+    /* Sanfter Übergang für die Vergrößerung */
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* Der neue Hover-Effekt: Vergrößern statt heller werden */
+.logo a:hover {
+    color: #1A1A1A; /* Die Farbe bleibt exakt gleich dunkel */
+    transform: scale(1.05); /* Vergrößert die Schrift dezent um 5% */
+}
+
+.minimal-nav {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+/* ==========================================================================
+   3. INHALT STARTSEITE & FLEXIBLE CONTAINER
+   ========================================================================== */
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Weniger starrer Abstand an den Seiten */
+}
+
+/* Konzepttext zentrieren */
+.concept-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto 60px auto;
+    text-align: center;
+}
+
+.concept-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.concept-text p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem); /* Text passt sich der Bildschirmgröße an */
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+}
+
+/* Trennlinie */
+.divider {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    border-top: 1px solid rgba(26, 26, 26, 0.08);
+    padding-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Flexibles Raster für die 3 Werke */
+.projects-grid {
+    display: grid;
+    /* minmax sorgt dafür, dass die Spalten nie gequetscht werden */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 40px;
+    width: 100%;
+}
+
+.project-card-main {
+    text-decoration: none;
+    color: #1A1A1A;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: #EAE6DF;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(15%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.card-meta {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.card-num {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    display: inline-block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* Hover-Effekte */
+.project-card-main:hover {
+    transform: translateY(-4px);
+}
+
+.project-card-main:hover .card-image-wrapper img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.project-card-main:hover .card-title {
+    color: #8C857B;
+}
+
+/* ==========================================================================
+   4. FOOTER & POPUPS (Überall sauber positioniert)
+   ========================================================================== */
+.main-footer {
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(26, 26, 26, 0.06);
+    width: 100%;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Bricht auf Handys automatisch in die nächste Zeile um */
+    gap: 20px 30px;
+    margin-bottom: 20px;
+}
+
+.footer-nav a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #8C857B;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Rechtliches Overlay (Kompatibel mit Mobilgeräten) */
+.legal-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(242, 239, 233, 0.96);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 15px;
+}
+
+.legal-content {
+    background: #F2EFE9;
+    border: 1px solid rgba(26, 26, 26, 0.1);
+    padding: clamp(20px, 5vw, 40px);
+    max-width: 600px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   5. UNTERSEITE: WERK 01 - VIDEO & SLIDER RESPONSIVE
+   ========================================================================== */
+.work-media-container {
+    max-width: 900px;
+    margin: 20px auto 0 auto;
+    width: 100%;
+}
+
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #EAE6DF;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.03);
+    margin-bottom: 40px;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-slider-section {
+    max-width: 600px; /* Schmaler gehalten, damit Hochformat-Bilder nicht den Schirm sprengen */
+    width: 100%;
+    margin: 60px auto 40px auto;
+}
+
+.slider-frame {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: #EAE6DF;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-images {
+            display: flex;
+            flex-wrap: nowrap; /* Zwingt die Bilder in eine starre, horizontale Reihe */
+            width: 100%;
+            height: 100%;
+            transform: translateX(0%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Elegante, sanfte Bewegung */
+        }
+
+.slider-slide {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.slider-arrow {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1A1A1A;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* ==========================================================================
+   6. ANPASSUNGEN SPEZIELL FÜR KLEINE BILDSCHIRME (Handys)
+   ========================================================================== */
+@media (max-width: 600px) {
+    .main-header {
+        padding: 15vw 15px 30px 15px; /* Mehr Platz auf sehr kleinen Bildschirmen */
+    }
+    
+    .main-container {
+        padding: 20px 15px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Zwingt die 3 Werke rigoros untereinander */
+        gap: 35px;
+    }
+
+    .concept-section {
+        margin: 20px auto 40px auto;
+    }
+
+    .video-wrapper {
+        margin-bottom: 25px;
+    }
+    
+    .gallery-slider-section {
+        margin-top: 40px;
+    }
+}

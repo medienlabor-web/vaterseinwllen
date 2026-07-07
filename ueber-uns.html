@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über das Projekt - Vatersein(wollen)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Varela&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Spezifisches Zusatz-Styling für das Personen-Raster auf dieser Seite -->
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .team-member {
+            text-align: center;
+            padding: 20px 10px;
+            border-top: 1px solid rgba(26, 26, 26, 0.06);
+        }
+        .member-role {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .member-name {
+            font-family: 'Varela', sans-serif;
+            font-size: 1.2rem;
+            color: #1A1A1A;
+            margin-bottom: 15px;
+        }
+        .member-bio {
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        @media (max-width: 900px) {
+            .team-grid {
+                grid-template-columns: 1fr; /* Auf Handys untereinander anzeigen */
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Bereich -->
+    <header class="main-header">
+        <div class="logo"><a href="index.html">VATER SEIN (WOLLEN)</a></div>
+        <nav class="minimal-nav">
+            <a href="index.html" class="back-link">&larr; Zurück zur Übersicht</a>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main class="main-container">
+        
+        <!-- Projekt-Hintergrund -->
+        <section class="concept-section">
+            <h1 class="concept-title">Über das Projekt</h1>
+            <div class="concept-text">
+                <p>
+                    Hinter dem Projekt <strong>"Vater sein (wollen)"</strong> steht ein interdisziplinäres Team aus den Bereichen Film und Animation. Gemeinsam formen wir den Raum für diese intime Auseinandersetzung.
+                </p>
+            </div>
+        </section>
+
+        <!-- Das Team (4 Personen ohne Bild) -->
+        <section class="team-grid">
+            
+            <!-- Person 1 -->
+            <div class="team-member">
+                <span class="member-role">Zeitbasierte Medien</span>
+                <h3 class="member-name">Eva Grandjean</h3>
+                <p class="member-bio">Produktion, Drehbuch und Regie</p>
+            </div>
+
+            <!-- Person 2 -->
+            <div class="team-member">
+                <span class="member-role">Film- und Theaterwissenschaft</span>
+                <h3 class="member-name">Mila Sommerfeldt</h3>
+                <p class="member-bio">Produktion, Regie, Aufnahmeleitung</p>
+            </div>
+
+            <!-- Person 3 -->
+            <div class="team-member">
+                <span class="member-role">Zeitbasierte Medien</span>
+                <h3 class="member-name">Luis Gall</h3>
+                <p class="member-bio">Kamera, Postproduktion, Schnitt</p>
+            </div>
+
+            <!-- Person 4 -->
+            <div class="team-member">
+                <span class="member-role">Zeitbasierte Medien</span>
+                <h3 class="member-name">Sara Beierle</h3>
+                <p class="member-bio">Pre- und Postproduktion, Animation </p>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werk 02 - Vatersein(wollen)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Varela&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Spezifische Styles für Video & Einzelbild auf dieser Unterseite -->
+    <style>
+        .work-media-container {
+            max-width: 900px;
+            margin: 20px auto 0 auto;
+            width: 100%;
+        }
+
+        /* Video-Frame im 16:9 Kinoformat */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #EAE6DF;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.03);
+            margin-bottom: 40px;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Sektion für das Einzelbild weiter unten */
+        .single-image-section {
+            max-width: 450px; /* Kompakte Breite, wie deine Slider */
+            width: 100%;
+            margin: 60px auto 60px auto; /* Zentriert die Sektion */
+        }
+
+        .image-frame {
+            width: 100%;
+            aspect-ratio: 3 / 4; /* Nutzt das vertraute Galerie-Format */
+            background-color: #EAE6DF; /* Passepartout-Hintergrund */
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Zeigt das komplette Bild, unbeschnitten */
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Kleine Info-Zeile unter dem Bild */
+        .image-meta {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Bereich (Wie in portfolio.html, aber mit Verlinkung) -->
+    <header class="main-header">
+        <div class="logo"><a href="https://agensev.de/trennungskinder-vergessene-kinder/">VATER SEIN (WOLLEN)</a></div>
+        <nav class="minimal-nav">
+            <a href="index.html" class="back-link">&larr; Zurück zur Übersicht</a>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main class="main-container">
+        
+        <!-- Bereich für das Hauptvideo/Kurzfilm von Werk 02 -->
+        <div class="work-media-container">
+            <div class="video-wrapper">
+                <!-- Tausche 'werk2_video.mp4' gegen deine Videodatei aus -->
+                <video controls poster="./fotos/FilmstillAnima_1.jpg">
+                    <source src="./videos/heimspiel01.mp4" type="video/mp4">
+                    Ihr Browser unterstützt dieses Video-Format nicht.
+                </video>
+            </div>
+        </div>
+
+        <!-- Beschreibung für Werk 02 (Zentriert) -->
+        <section class="concept-section" style="margin-top: 0;">
+            <span class="card-num">Animation-Teaser</span>
+            <h1 class="concept-title" style="margin-top: 10px;">Heimspiel</h1>
+            <div class="concept-text">
+                <p>
+                    Es ist 2014, Deutschland wird dieses Jahr Weltmeister. Während Lina die emotionale Abwesenheit ihres Vaters spürt, spürt Leon 4 Jahre später die physische Abwensenheit. </p>
+                    <p> Von Sara Beierle </p>
+            </div>
+        </section>
+
+        <!-- Trenner für die Galerie beim Runterscrollen -->
+        <div class="divider">Charakterdesign</div>
+
+        <!-- Einzelbild-Sektion (Statt Slidern) -->
+        <section class="single-image-section">
+            <div class="image-frame">
+                <!-- Tausche diesen Link gegen dein echtes Werkfoto für Werk 2 aus -->
+                <img src="./fotos/charakter.jpeg" alt="Zentrales Ausstellungsfragment von Werk 02">
+            </div>
+            
+        </section>
+
+    </main>
+
+</body>
+</html>

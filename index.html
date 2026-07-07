@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vatersein(wollen)</title>
+    
+    <!-- Google Fonts Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Varela&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Bereich -->
+    <header class="main-header">
+        <div class="logo"><a href="https://wiso.uni-koeln.de/de/aktuelles-und-neuigkeiten/news-einzelansicht/jeder-fuenfte-erwachsene-entfremdet-sich-vom-vater">VATER SEIN (WOLLEN)</a></div>
+        <nav class="minimal-nav">
+            <span>Übersicht</span>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main class="main-container">
+        
+        <!-- Konzept- & Einführungstext -->
+        <section class="concept-section">
+            <h1 class="concept-title">Das Projekt</h1>
+            <div class="concept-text">
+                <p>
+                    Unser Projekt heißt <strong>"Vater sein (wollen)"</strong> da ein Kind bekommen nicht gleich Vater sein bedeutet. 
+                </p>
+                <p>
+                    Es geht uns darum, verschiedene Vaterrollen und Vater-Kind Beziehungen zu zeigen und die unterschiedlichen Lebensrealitäten von Vätern authentisch darzustellen. Vorallem auch die Bedeutung ihrer Beziehung zu ihren Kindern in all ihrer Vielfalt hervorzuheben.
+                </p>
+            </div>
+        </section>
+
+        <!-- Trennlinie -->
+        <div class="divider">Werke</div>
+
+        <!-- Projekt-Übersicht (3 Spalten Raster) -->
+        <section class="projects-grid">
+            
+            <!-- Projekt 1 -->
+            <a href="portfolio.html" class="project-card-main">
+                <div class="card-image-wrapper">
+                    <img src="./fotos/Still_türspalt.jpg" alt="Werk 1">
+                </div>
+                <div class="card-meta">
+                    <span class="card-num">Kurzfilm</span>
+                    <h2 class="card-title">Türspalt</h2>
+                    <p class="card-desc">Die Beziehung zum Stiefvater, welche sich ihm Teenager-Alter verändert und das Warten auf den leiblichen Vater. </p>
+                </div>
+            </a>
+
+            <!-- Projekt 2 -->
+            <a href="werk2.html" class="project-card-main">
+                <div class="card-image-wrapper">
+                    <img src="./fotos/FilmstillAnima_1.jpg" alt="Werk 2">
+                </div>
+                <div class="card-meta">
+                    <span class="card-num">Kurzer Animationsfilm</span>
+                    <h2 class="card-title">Heimspiel</h2>
+                    <p class="card-desc">Ein Geschwisterpaar erlebt die Emotionale und Physische Abwesenheit des Vaters.</p>
+                </div>
+            </a>
+
+            <!-- Projekt 3 -->
+            <a href="werk3.html" class="project-card-main">
+                <div class="card-image-wrapper">
+                    <img src="./fotos/Filmstil_3.jpg" alt="Werk 3">
+                </div>
+                <div class="card-meta">
+                    <span class="card-num">Interaktives Werk</span>
+                    <h2 class="card-title">"Lieber Papa..."</h2>
+                    <p class="card-desc">Sammlung an anonymen Briefen an Väter, geschrieben und vorgelesen von fremden Menschen.</p>
+                </div>
+            </a>
+
+        </section>
+
+    </main>
+<!-- Fußzeile / Footer -->
+    <footer class="main-footer">
+        <div class="footer-nav">
+            <a href="ueber-uns.html">Über uns</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="#impressum-modal" class="impressum-trigger" onclick="toggleImpressum(event)">Impressum & Datenschutz</a>
+        </div>
+        <p class="copyright">&copy; 2026 Vatersein(wollen). Alle Rechte vorbehalten.</p>
+
+        <!-- Rechtliches Overlay (Impressum) -->
+        <div id="impressum-popup" class="legal-popup" style="display: none;">
+            <div class="legal-content">
+                <button class="close-popup" onclick="toggleImpressum(event)">&times;</button>
+                <h2>Impressum</h2>
+                <p><strong>Verantwortlich für den Inhalt:</strong><br>
+                Sara Beierle<br>
+                Studentin: Hochschule Mainz <br>
+                </p>
+                
+                <p><strong>Kontakt:</strong><br>
+                E-Mail: vaterseinwollen@gmx.net<br>
+                </p>
+
+                <p><strong>Haftungshinweis:</strong><br>
+                Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+                
+                <h2 style="margin-top: 30px;">Datenschutz</h2>
+                <p>Diese Website dient der Präsentation eines künstlerischen Projekts. Es werden standardmäßig keine personenbezogenen Tracking-Daten erhoben oder Analyse-Tools von Drittanbietern verwendet. Sollten Sie uns per E-Mail kontaktieren, werden Ihre Daten ausschließlich zur Bearbeitung Ihrer Anfrage genutzt und nicht an Dritte weitergegeben.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Kleines Skript für das Impressum-Popup -->
+    <script>
+        function toggleImpressum(e) {
+            if(e) e.preventDefault();
+            const popup = document.getElementById('impressum-popup');
+            popup.style.display = popup.style.display === 'none' ? 'flex' : 'none';
+        }
+    </script>
+</body>
+</html>
